@@ -1,6 +1,11 @@
 #!/bin/bash
 
 sudo yum update –y
+<<<<<<< HEAD
+sudo yum docker* -y
+=======
+sudo yum install docker* -y
+>>>>>>> 6f3d2932e4fbce6798e70bffb011359384de15ca
 sudo wget -O /etc/yum.repos.d/jenkins.repo \
     https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
