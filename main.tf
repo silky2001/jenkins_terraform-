@@ -74,3 +74,29 @@ resource "aws_instance" "web" {
     Name = "Jenkins"
   }
 }
+
+
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [aws_instance.web]
+
+  create_duration = "30s"
+}
+
+resource "null_resource" "null" {
+provisioner "remote-exec" {
+    inline = [
+      "sudo cat /var/lib/jenkins/secrets/initialAdminPassword",
+
+    ]
+
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    private_key = file("newkeyjenkins.pem")
+    host     = aws_instance.web.private_ip
+  }
+
+}
+
+ depends_on = [time_sleep.wait_30_seconds]
+}

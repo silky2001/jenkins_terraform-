@@ -1,11 +1,11 @@
 variable "aws_region" {
   description = "AWS region to create resources"
-  default     = "us-east-1"
+  default     = "ap-south-1"
 }
 
 variable "vpc_id" {
   description = "VPC for Jenkins"
-  default     = "vpc-0c0dee71"
+  default     = "vpc-062ebd09a86b5d334"
 }
 
 variable "cidr_block" {
@@ -15,5 +15,5 @@ variable "cidr_block" {
 
 variable "key_name" {
   description = "Name of keypair to ssh"
-  default     = "jenkinskey"
+  default     = "newkeyjenkins"
 }
